@@ -15,6 +15,8 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 export const signInWithGoogle = async () => {
+    console.log("Hola, estamos aca validando google");
+
     const result = await signInWithPopup(auth, provider);
     return result.user;
 };

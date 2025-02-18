@@ -5,8 +5,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-
-    console.log ("holi");
+    
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
             setUser(user);
@@ -14,6 +13,7 @@ export const AuthProvider = ({ children }) => {
         return () => unsubscribe();
     }, []);
 
+    
     return (
         <AuthContext.Provider value={{ user, signInWithGoogle, logout }}>
             {children}
